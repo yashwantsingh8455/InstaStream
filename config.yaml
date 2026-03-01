@@ -1,0 +1,14 @@
+# --- USER DATA ---
+names = ['Yash', 'Admin User']
+usernames = ['yash', 'admin']
+passwords = ['yash123', 'admin123']
+
+# Is line ko dhyaan se dekhein:
+hashed_passwords = stauth.Hasher.generate_hashes(passwords)
+
+credentials = {"usernames":{}}
+for i in range(len(usernames)):
+    credentials["usernames"][usernames[i]] = {
+        "name": names[i],
+        "password": hashed_passwords[i]
+    }
